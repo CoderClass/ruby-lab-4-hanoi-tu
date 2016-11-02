@@ -8,13 +8,11 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.room_id = params[:room_id]
 
-    if @message.save
-      flash[:success] = 'New message sent'
-    else
+    if ! @message.save
       flash[:error] = @message.errors.full_messages.to_sentence
     end
 
-    redirect_to :back
+    redirect_back fallback_location: root_path
   end
 
   private

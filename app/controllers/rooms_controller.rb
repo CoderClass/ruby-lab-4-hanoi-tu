@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
       flash[:error] = @room.errors.full_messages.to_sentence
     end
 
-    redirect_to root_path
+    redirect_back fallback_location: root_path
   end
 
   private
