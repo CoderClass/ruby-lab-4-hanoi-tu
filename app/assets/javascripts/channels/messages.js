@@ -14,7 +14,11 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
       "data received": data
     });
     // Called when there's incoming data on the websocket for this channel
-    $(".messages").append(data.message);
+    $messages = $(".messages")
+    $messages.append(data.message) // append latest message
+             .scrollTop($messages[0].scrollHeight); // auto scroll to bottom
+    $('#new_message').find('input[type="text"]').val(''); // clear input
+
   },
   test: function(data) {
     // Notice that this calls the javascript defined by MessagesChannel#test on the server

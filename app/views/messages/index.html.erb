@@ -12,7 +12,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <hr>
 
-<%= form_for [@room, Message.new], html: { class: "form-inline"} do |f| %>
+<%= form_for [@room, Message.new], html: { class: "form-inline"}, remote: true do |f| %>
   <div class="form-group">
     <%= f.text_field :content, class: "form-control", placeholder: "Message content" %>
 
@@ -26,9 +26,9 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <script type="text/javascript">
   $(function() {
-    setInterval(function() {
-      window.updateMessagesViaJSON("<%= request.original_url %>")
-    }, 3000)
+    // setInterval(function() {
+    //   window.updateMessagesViaJSON("<%= request.original_url %>")
+    // }, 3000)
 
     // setInterval(function() {
     //   window.updateMessagesViaJs("<%= request.original_url %>.js")

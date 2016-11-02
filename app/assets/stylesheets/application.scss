@@ -1,1 +1,7 @@
 @import "bootstrap";
+
+.messages {
+  height: 350px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+}

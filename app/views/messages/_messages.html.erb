@@ -1,5 +1,5 @@
 <div class="messages">
 <% messages.each do |message| %>
-  <p><strong><%= message.username %></strong>: <%= message.content %></p>
+  <%= render 'message', { message: message } %>
 <% end %>
 </div>
