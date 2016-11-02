@@ -1,5 +1,4 @@
-<h1>Welcome</h1>
-<p>This is a basic chat app</p>
+<h1>Welcome to room : <strong><%= @room.name %></strong></h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -9,19 +8,17 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <hr>
 
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action list-group-item-success">CHAT ROOMS</a>
-  <% @rooms.each do |room| %>
-    <%= link_to room.name, room, class: 'list-group-item'  %>
-  <% end %>
-</div>
+<% @room.messages.each do |message| %>
+  <p><strong><%= message.username %></strong>: <%= message.content %></p>
+<% end %>
 
 <hr>
 
-<%= form_for @new_room, html: {class: 'form-inline'} do |f| %>
+<%= form_for [@room, Message.new], html: { class: "form-inline"} do |f| %>
   <div class="form-group">
-    <%= f.text_field :name, class: 'form-control', placeholder: "New room's name" %>
+    <%= f.text_field :content, class: "form-control", placeholder: "Message content" %>
+    <%= f.text_field :username, class: "form-control", placeholder: "Username" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
-    <%= f.submit "Submit", class: 'btn btn-primary' %>
 <% end %>
 
