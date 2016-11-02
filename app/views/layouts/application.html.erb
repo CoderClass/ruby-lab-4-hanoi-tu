@@ -10,27 +10,24 @@
 
   <body>
     <nav class="navbar navbar-light bg-faded">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <ul class="nav navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </ul>
-      <form class="form-inline float-xs-right">
-        <input class="form-control" type="text" placeholder="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div class="container">
+        <%= link_to 'CHATAPP', root_path, class: "navbar-brand" %>
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <%= link_to 'Home', root_path, class: "nav-link" %>
+          </li>
+        </ul>
+
+        <form class="form-inline float-xs-right">
+          <input class="form-control" type="text" placeholder="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </nav>
     <div class="container">
-      <%= flash_messages %>
+      <div style="margin-bottom:15px;">
+        <%= flash_messages %>
+      </div>
       <%= yield %>
     </div>
   </body>
