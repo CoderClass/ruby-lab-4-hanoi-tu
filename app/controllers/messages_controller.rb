@@ -7,6 +7,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.room_id = params[:room_id]
+    if current_user
+      @message.username = current_user
+    end
 
     if ! @message.save
       flash[:error] = @message.errors.full_messages.to_sentence

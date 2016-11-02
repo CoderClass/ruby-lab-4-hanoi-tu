@@ -18,10 +18,24 @@
           </li>
         </ul>
 
-        <form class="form-inline float-xs-right">
-          <input class="form-control" type="text" placeholder="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <% if current_user %>
+          <ul class="nav navbar-nav float-xs-right">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                <%= current_user %>
+              </a>
+              <div class="dropdown-menu">
+                <%= link_to 'Logout', logout_path, class: 'dropdown-item', method: 'delete' %>
+               </div>
+             </li>
+          </ul>
+        <% else %>
+          <%= form_tag login_path, method: 'post', class: 'form-inline float-xs-right' do %>
+            <%= text_field_tag "username", '', placeholder: "Username to indentify", class: "form-control", required: true %>
+            <%= submit_tag "Login", class: "btn btn-outline-success" %>
+          <% end %>
+        <% end %>
+
       </div>
     </nav>
     <div class="container">
