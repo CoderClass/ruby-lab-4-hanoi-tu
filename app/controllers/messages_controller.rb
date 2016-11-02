@@ -2,6 +2,11 @@ class MessagesController < ApplicationController
 
   def index
     @room = Room.find(params[:room_id])
+
+    respond_to do |format|
+        format.html {}
+        format.json { render json: @room.messages }
+      end
   end
 
   def create

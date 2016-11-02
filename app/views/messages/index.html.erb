@@ -8,9 +8,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <hr>
 
-<% @room.messages.each do |message| %>
-  <p><strong><%= message.username %></strong>: <%= message.content %></p>
-<% end %>
+<%= render "messages", { messages: @room.messages } %>
 
 <hr>
 
@@ -26,3 +24,10 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 <% end %>
 
+<script type="text/javascript">
+  $(function() {
+    setInterval(function() {
+      window.updateMessagesViaJSON("<%= request.original_url %>")
+    }, 3000)
+  });
+</script>
