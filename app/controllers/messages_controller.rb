@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
         format.html {}
         format.json { render json: @room.messages }
+        format.js {}
       end
   end
 

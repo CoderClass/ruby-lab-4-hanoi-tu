@@ -1,0 +1,9 @@
+(function() {
+
+$('.messages').html('');
+
+var content = "<%= j render("messages", messages: @room.messages) %>";
+
+$('.messages').html(content);
+
+})();

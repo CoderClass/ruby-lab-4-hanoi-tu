@@ -11,3 +11,9 @@ window.updateMessagesViaJSON = function(messagesUrl) {
   })
 }
 
+window.updateMessagesViaJs = function(messagesUrl) {
+  console.log("inside updateMessagesViaJs");
+  $.getScript(messagesUrl, function(response) {
+    response;
+  });
+}
